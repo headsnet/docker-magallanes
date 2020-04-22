@@ -15,4 +15,5 @@ RUN mkdir -p /var/www
 
 WORKDIR /var/www
 
-ENTRYPOINT ["/mage/bin/mage"]
+#ENTRYPOINT ["/mage/bin/mage"]
+#ENTRYPOINT ["/var/www"]
