@@ -9,11 +9,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 	composer global require --no-suggest andres-montanez/magallanes
 
 FROM php:7.4-cli-alpine
-COPY --from=builder /root/.composer/vendor /mage
+COPY --from=builder /root/.composer/vendor /opt/mage
 
-RUN mkdir -p /var/www
+RUN mkdir -p /var/www && ln -s /opt/mage/bin/mage /usr/bin/mage
 
 WORKDIR /var/www
-
-#ENTRYPOINT ["/mage/bin/mage"]
-#ENTRYPOINT ["/var/www"]
